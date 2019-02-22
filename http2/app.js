@@ -1,15 +1,16 @@
 const http = require("http");
 const fs = require('file-system');
 
-http.createServer(function(req, res) {
-    try {
-        let file = fs.readFileSync('.'+req['url']+'.txt','utf8');
-        res.write(file);
-    } catch(err) {
-        if(err) {
-            res.write("404 file not found");
-        }
-    }
+// let movieA = fs.readFileSync("./movieA.txt", "utf8");
 
-    res.end();
-}).listen(3000);
+// fs.writeFileSync("./movieA.txt ", movieA + " I love action movies", 'utf8');
+
+// fs.rename('./movieA.txt', 'babyDriver.txt', (err) => {
+//     if(err) throw err;
+//     console.log("Your new file is babyDriver.txt");
+// });
+
+fs.unlink('./movieC.txt', (err) => {
+    if (err) throw err;
+    console.log('./movieC.txt was deleted');
+  });

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Todo list</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='style.css' />
+</head>
+<body>
+
+	<h1>Create a new task</h1>
+	<form action='/tasks/new/' method='POST'>
+		<input type="text" name='description' placeholder="Write your task" />
+		<input type='submit' />
+	</form>
+
+	<h1>Our tasks</h1>
+
+	<ul id="task-area">
+	</ul>
+	
+
+	<div id="update-area">
+	</div>
+
+	<script src='script.js'></script>
+</body>
+</html>
