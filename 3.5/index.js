@@ -1,18 +1,32 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-// app.set('views', './views');
-// app.set('view engine', 'jade');
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(bodyParser.json());
+
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
 const memberAPI = express.Router();
 const adminAPI = express.Router();
 
 app.get('/', function(req,res) {
-    res.render('pages/three', {
-        tagline: "Page three"
+    res.render('pages/four', {
+        tagline: "Page four"
     });
 });
-console.log(adminAPI);
+
+
+app.get('/basicform', function(req,res) {
+    res.render('pages/five');
+});
+
+app.post('/basicform', function(req,res) {
+ console.log(req.body.inputEmail3 + ", " + req.body.inputPassword3);
+ res.send('Login successful');
+});
 
 memberAPI.get('/', function(req, res) {
     res.send('Member page!');

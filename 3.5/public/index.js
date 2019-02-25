@@ -1,28 +1,20 @@
 const express = require('express');
+
 const app = express();
 
-// app.set('views', './views');
-// app.set('view engine', 'jade');
+const memberApi = express.Router();
 
-const memberAPI = express.Router();
 const adminAPI = express.Router();
 
-app.get('/', function(req,res) {
-    res.render('pages/three', {
-        tagline: "Page three"
-    });
-});
-console.log(adminAPI);
-
-memberAPI.get('/', function(req, res) {
+memberApi.get('/', function(req, res) {
     res.send('Member page!');
 });
 
-memberAPI.get('/profile', function(req, res) {
+memberApi.get('/profile', function(req, res) {
     res.send('Member profile page!');
 });
 
-memberAPI.get('/changpassword', function(req, res) {
+memberApi.get('/changpassword', function(req, res) {
     res.send('Member change password page!');
 });
 

@@ -1,5 +1,5 @@
 {
-  "name": "3.2",
+  "name": "3.4",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "Souad",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "jade": "^1.11.0"
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
   }
 }

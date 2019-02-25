@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-// app.set('views', './views');
-// app.set('view engine', 'jade');
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
 const memberAPI = express.Router();
 const adminAPI = express.Router();
