@@ -1,0 +1,19 @@
+{
+  "name": "traversy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Souad",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
