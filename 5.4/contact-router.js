@@ -60,8 +60,7 @@ contactRouter.put('/:contactId', function(req,res) {
     contacts.get(contactId, function(err, result) {
         if (err) {
             if (err.status === 404 ) {
-                res.status(404).send(err.message);;
-
+                res.status(404).send(err.message);
             } else {
                 res.status(500).send(err.message);
             }
