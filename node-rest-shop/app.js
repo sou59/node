@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+// log
 const morgan = require('morgan');
+
+// Middelware extract entire body portion of an incoming request stream and exposes it on req.body
 const bodyParser = require('body-parser');
+// requete sur la base MongoDB
 const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
@@ -20,9 +24,14 @@ db.once('open', function() {
 
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
+
+// // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));
+
+// for parsing application/json
 app.use(bodyParser.json());
 
+// Allow toutes les entrées, sinon n'autoriser que cette url à accéder à l'API "http://localhost:4200"
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept, Authorization');
@@ -33,20 +42,19 @@ app.use((req, res, next) => {
     next();
 });
 
-// midelware et route par defaut
 // Routes which should handle requests
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes);
 
 // pour les autres routes inexistantes
-app.use((req, res, next) => {
+app.use( (req, res, next) => {
     const error = new Error('Not found');
     error.status = 404;
     next(error);
 });
 
-app.use((error, req, res, next) => {
+app.use( (error, req, res, next) => {
     res.status(error.status || 500);
     res.json({
         error: {
