@@ -1,0 +1,16 @@
+{
+  "name": "MySQL-Demo",
+  "description": "Demonstrates Using MySQL Database connectivity",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "0.1.x",
+    "bcrypt": "3.x",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "generic-pool": "2.x",
+    "mysql": "2.x",
+    "node-uuid": "1.x"
+  }
+}
